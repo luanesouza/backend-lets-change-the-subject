@@ -1,11 +1,10 @@
 class Question < ApplicationRecord
-    has_many :seen_questions
+    has_many :seen_questions, dependent: :destroy
     has_many :users, :through => :seen_questions
     has_many :question_categories
     has_many :categories, :through => :question_categories
 
-    validates :content, presence: true
-    validates :spiciness, presence: true
+    validates_presence_of :content, :spiciness
     validate :proper_range
 
     def proper_range
