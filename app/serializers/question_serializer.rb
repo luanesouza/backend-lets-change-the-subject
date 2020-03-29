@@ -1,5 +1,5 @@
 class QuestionSerializer < ActiveModel::Serializer
-  attributes :id, :content, :additional_link, :spiciness
+  attributes :id, :content, :additionalLink, :spiciness
 
   def additionalLink
     object.additional_link
