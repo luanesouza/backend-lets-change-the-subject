@@ -25,6 +25,6 @@ class Api::V1::CategoriesController < ApplicationController
     end
 
     def find_category
-        @category = Category.find(params[:id])
+        @category = Category.find_by(name: params[:name])
     end
 end

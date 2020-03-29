@@ -4,4 +4,5 @@ class QuestionSerializer < ActiveModel::Serializer
   def additionalLink
     object.additional_link
   end
+
 end

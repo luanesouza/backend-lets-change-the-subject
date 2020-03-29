@@ -5,7 +5,8 @@ Rails.application.routes.draw do
       resources :questions, only: [:index, :show]
       resources :seen_questions, only: [:index, :show, :create]
       resources :question_categories, only: [:index, :show]
-      resources :categories, only: [:index, :show]
+      # resources :categories, only: [:index, :show]
+      resources :categories, param: :name, only: [:index, :show]
     end
   end
 end

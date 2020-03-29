@@ -25,9 +25,9 @@ q6 = Question.create!(content: "What would constitute a 'perfect' day for you?",
 q7 = Question.create!(content: "When did you last sing to yourself? To someone else?", spiciness: 2, additional_link: "")
 
 ############### CATEGORIES ###############
-c1 = Category.create!(name: "Friends")
-c2 = Category.create!(name: "Coworkers")
-c3 = Category.create!(name: "Partners")
+c1 = Category.create!(name: "friends")
+c2 = Category.create!(name: "coworkers")
+c3 = Category.create!(name: "partners")
 
 ############### QUESTION_CATEGORIES ###############
 qc1 = QuestionCategory.create!(question_id: q1.id, category_id: c1.id)
