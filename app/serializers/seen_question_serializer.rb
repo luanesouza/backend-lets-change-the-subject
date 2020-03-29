@@ -1,5 +1,5 @@
 class SeenQuestionSerializer < ActiveModel::Serializer
-  attributes :id, :questionId, :userId
+  attributes :id, :questionId, :userId, :skipped
 
   def questionId
     object.question_id
