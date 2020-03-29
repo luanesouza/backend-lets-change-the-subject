@@ -1,5 +1,5 @@
 class Api::V1::UsersController < ApplicationController
-    before_action :find_user, only: [:create, :show, :destroy]
+    before_action :find_user, only: [:update, :show, :destroy]
 
     def index
         begin

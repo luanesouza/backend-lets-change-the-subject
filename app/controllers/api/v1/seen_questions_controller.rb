@@ -5,7 +5,7 @@ class Api::V1::SeenQuestionsController < ApplicationController
         begin
             @seen_questions = SeenQuestion.all
             render json: @seen_questions
-        rescue StandardError => e 
+        rescue Exception => e 
             render json: {"error": ("#{e.message}") }, status: 400
         end
     end
