@@ -5,7 +5,7 @@ class Api::V1::SeenQuestionsController < ApplicationController
         begin
             @seen_questions = SeenQuestion.all
             render json: @seen_questions
-        rescue Exception => e 
+        rescue StandardError => e  
             render json: {"error": ("#{e.message}") }, status: 400
         end
     end
@@ -26,7 +26,7 @@ class Api::V1::SeenQuestionsController < ApplicationController
     def show
         begin
             render json: { seen_question: SeenQuestionSerializer.new(@seen_question)}, status: 200
-        rescue StandardError => e 
+        rescue StandardError => e  
             render json: {"error": ("#{e.message}") }, status: 400
         end
     end
