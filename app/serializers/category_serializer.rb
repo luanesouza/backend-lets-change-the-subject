@@ -10,4 +10,5 @@ class CategorySerializer < ActiveModel::Serializer
       "content": q.content
     }}
   end
+
 end
