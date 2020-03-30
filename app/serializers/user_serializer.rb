@@ -18,7 +18,7 @@ class UserSerializer < ActiveModel::Serializer
   end
 
   def find_not_seen_in_cat(cat)
-    not_seen = Question.all.select{|q| q.categories.select{|c| c.name.include?(cat)}}.select{|q| !seen_questions.include?(q)}
+    not_seen = Question.all.select{|q| q.categories.select{|c| c.name.include?(cat)}}.select{|q| !seen_questions.include?(q)}.shuffle
     return not_seen
   end
 
