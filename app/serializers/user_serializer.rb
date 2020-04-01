@@ -18,7 +18,13 @@ class UserSerializer < ActiveModel::Serializer
   end
 
   def find_not_seen_in_cat(cat)
-    not_seen = Question.all.select{|q| q.categories.select{|c| c.name.include?(cat)}}.select{|q| !seen_questions.include?(q)}.shuffle
+    not_seen = Question.all.select{|q| q.categories.select{|c| c.name.include?(cat)}}.select{|q| !seen_questions.include?(q)}.map{|q| 
+      {
+        "id": q.id,
+        "spiciness": q.spiciness,
+        "additionalLink": q.additional_link,
+        "content": q.content
+      }}.shuffle
     if not_seen.length > 100
       return not_seen.sample(100)
     else 

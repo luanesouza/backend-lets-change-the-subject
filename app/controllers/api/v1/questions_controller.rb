@@ -3,7 +3,11 @@ class Api::V1::QuestionsController < ApplicationController
 
     def index
         begin
-            @questions = Question.all
+            if Question.all.length > 100
+                @questions = Question.all.sample(100)
+            else 
+                @questions = Question.all
+            end
             render json: @questions
         rescue StandardError => e  
             render json: {"error": ("#{e.message}") }, status: 400
