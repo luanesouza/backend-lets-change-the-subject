@@ -12,7 +12,7 @@ class Api::V1::CategoriesController < ApplicationController
 
     def show
         begin
-            render json: { question: CategorySerializer.new(@category)}, status: 200
+            render json: { category: CategorySerializer.new(@category)}, status: 200
         rescue StandardError => e  
             render json: {"error": ("#{e.message}") }, status: 400
         end
@@ -21,7 +21,7 @@ class Api::V1::CategoriesController < ApplicationController
     private
 
     def question_params
-        params.require(:category).permit(:name)
+        params.permit(:name)
     end
 
     def find_category

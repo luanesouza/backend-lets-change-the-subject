@@ -34,7 +34,7 @@ class Api::V1::SeenQuestionsController < ApplicationController
     private
 
     def seen_question_params
-        params.require(:seen_question).permit(:user_id, :question_id, :skipped )
+        params.permit(:user_id, :question_id, :skipped )
     end
 
     def find_seen_question

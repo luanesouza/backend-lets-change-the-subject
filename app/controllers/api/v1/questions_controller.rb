@@ -21,7 +21,7 @@ class Api::V1::QuestionsController < ApplicationController
     private
 
     def question_params
-        params.require(:question).permit(:content, :spiciness, :additional_link )
+        params.permit(:content, :spiciness, :additional_link )
     end
 
     def find_question
