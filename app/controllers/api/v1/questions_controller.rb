@@ -16,7 +16,7 @@ class Api::V1::QuestionsController < ApplicationController
 
     def show
         begin
-            render json: { question: QuestionSerializer.new(@question)}, status: 200
+            render json: @question, status: 200
         rescue StandardError => e  
             render json: {"error": ("#{e.message}") }, status: 400
         end

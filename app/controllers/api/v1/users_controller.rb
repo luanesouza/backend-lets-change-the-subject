@@ -10,12 +10,16 @@ class Api::V1::UsersController < ApplicationController
         end
     end
 
+    def show
+        render json: @user, status: :accepted
+    end
+
     def create
         @user = User.new(user_params)
             if @user.valid? # && params[:user][:password] === params[:user][:password_confirmation]
                 @user.save
                 @token = encode_token({ user_id: @user.id })
-                render json: { user: UserSerializer.new(@user) }, status: :created
+                render json: @user, status: :created
             else
                 @all_errors = ''
                 @user.errors.full_messages.each do |message|
@@ -26,10 +30,6 @@ class Api::V1::UsersController < ApplicationController
                 # end
                 render json: { error: @all_errors }, status: :not_acceptable
             end
-    end
-
-    def show
-        render json: { user: UserSerializer.new(@user) }, status: :accepted
     end
 
     def update

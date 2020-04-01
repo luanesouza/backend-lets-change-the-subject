@@ -13,7 +13,7 @@ class Api::V1::SeenQuestionsController < ApplicationController
     def create
         @seen_question = Event.create(seen_question_params)
         if @seen_question.valid?
-            render json: { seen_question: SeenQuestionSerializer.new(@seen_question)}, status: 200
+            render json: @seen_question, status: 200
         else
             @all_errors = ''
             @seen_question.errors.full_messages.each do |message|
@@ -25,7 +25,7 @@ class Api::V1::SeenQuestionsController < ApplicationController
 
     def show
         begin
-            render json: { seen_question: SeenQuestionSerializer.new(@seen_question)}, status: 200
+            render json: @seen_question, status: 200
         rescue StandardError => e  
             render json: {"error": ("#{e.message}") }, status: 400
         end

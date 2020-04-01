@@ -12,7 +12,7 @@ class Api::V1::QuestionCategoriesController < ApplicationController
 
     def show
         begin
-            render json: { question_category: QuestionCategorySerializer.new(@question_category)}, status: 200
+            render json: @question_category, status: 200
         rescue StandardError => e  
             render json: {"error": ("#{e.message}") }, status: 400
         end
