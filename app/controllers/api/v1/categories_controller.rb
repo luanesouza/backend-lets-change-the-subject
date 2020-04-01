@@ -4,7 +4,6 @@ class Api::V1::CategoriesController < ApplicationController
     def index
         begin
             @categories = Category.all
-            render json: @categories
         rescue StandardError => e  
             render json: {"error": ("#{e.message}") }, status: 400
         end
