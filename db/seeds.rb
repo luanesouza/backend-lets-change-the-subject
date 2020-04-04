@@ -27,7 +27,7 @@ q7 = Question.create!(content: "When did you last sing to yourself? To someone e
 ############### CATEGORIES ###############
 c1 = Category.create!(name: "friends")
 c2 = Category.create!(name: "coworkers")
-c3 = Category.create!(name: "partners")
+c3 = Category.create!(name: "partner")
 
 ############### QUESTION_CATEGORIES ###############
 qc1 = QuestionCategory.create!(question_id: q1.id, category_id: c1.id)
