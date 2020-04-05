@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 2020_03_28_231957) do
     t.integer "spiciness"
     t.string "content"
     t.string "additional_link"
+    t.string "source"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

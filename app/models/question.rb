@@ -1,4 +1,5 @@
 class Question < ApplicationRecord
+    after_initialize :init
     has_many :seen_questions, dependent: :destroy
     has_many :users, :through => :seen_questions
     has_many :question_categories
@@ -13,5 +14,9 @@ class Question < ApplicationRecord
         elsif self.spiciness > 5
             self.errors.add(:spiciness, "Come on, it can't be that spicy! Max spiciness is 5.")
         end
+    end
+
+    def init
+        self.source = "" if self.source.nil?          #will set the default value only if it's nil
     end
 end

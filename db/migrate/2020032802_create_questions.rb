@@ -4,6 +4,7 @@ class CreateQuestions < ActiveRecord::Migration[6.0]
       t.integer :spiciness
       t.string :content
       t.string :additional_link
+      t.string :source
 
       t.timestamps
     end
