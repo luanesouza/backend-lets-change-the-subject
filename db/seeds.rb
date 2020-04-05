@@ -34,7 +34,7 @@ q7 = Question.create!(content: "When did you last sing to yourself? To someone e
 ############### CATEGORIES ###############
 c1 = Category.create!(name: "friends")
 c2 = Category.create!(name: "coworkers")
-c3 = Category.create!(name: "partners")
+c3 = Category.create!(name: "partner")
 
 ############### QUESTION_CATEGORIES ###############
 qc1 = QuestionCategory.create!(question_id: q1.id, category_id: c1.id)
@@ -83,7 +83,11 @@ partner_36_qs = [
 "Of all the people in your family, whose death would you find most disturbing, and why?"
 ]
 
-partner_36_qs.each{|q| q3 = Question.create!(content: q, spiciness: 2, additional_link: q36_link, source: q36)}
+
+partner_36_qs.each do |q| 
+    question = Question.create!(content: q, spiciness: 1, additional_link: q36_link, source: q36)
+    QuestionCategory.create!(question_id: question.id, category_id: c3.id)
+end 
 
 friends_qs_sylwia = [
 "What's your favorite cereal?",
@@ -153,7 +157,10 @@ friends_qs_sylwia = [
 "How would you explain to an alien who doesn't know our culture at all what TikTok is?"
 ]
 
-friends_qs_sylwia.each{|q| Question.create!(content: q, spiciness: 1, additional_link: "", source: "")}
+friends_qs_sylwia.each do |q| 
+    question = Question.create!(content: q, spiciness: 1, additional_link: "", source: "")
+    QuestionCategory.create!(question_id: question.id, category_id: c1.id)
+end 
 
 friends_qs_conv = [
 "What would be the worst name to give a child?",
@@ -191,10 +198,15 @@ friends_qs_conv = [
 "Do people have a right to be happy or should they have to earn it?"
 ]
 
-friends_qs_conv.each{|q| Question.create!(content: q, spiciness: 1, additional_link: q_conversation_starters_link, source: q_conversation_starters)}
+friends_qs_conv.each do |q| 
+    question = Question.create!(content: q, spiciness: 1, additional_link: q_conversation_starters_link, source: q_conversation_starters)
+    QuestionCategory.create!(question_id: question.id, category_id: c1.id)
+end 
 
 colleague_qs = [
     "Do you wish you had a clone?"
 ]
-
-colleague_qs.each{|q| Question.create!(content: q, spiciness: 1, additional_link: "", source: "")}
+colleague_qs.each do |q| 
+    question = Question.create!(content: q, spiciness: 1, additional_link: "", source: "")
+    QuestionCategory.create!(question_id: question.id, category_id: c2.id)
+end 
