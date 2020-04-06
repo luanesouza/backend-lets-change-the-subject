@@ -15,10 +15,10 @@ class Api::V1::UsersController < ApplicationController
     end
 
     def create
-        @user = User.new(user_params)
+        @user = User.create!(user_params)
             if @user.valid? # && params[:user][:password] === params[:user][:password_confirmation]
-                @user.save
-                @token = encode_token({ user_id: @user.id })
+                # payload = {user_id: user.id}
+                # @token = encode_token({ user_id: @user.id })
                 render json: @user, status: :created
             else
                 @all_errors = ''

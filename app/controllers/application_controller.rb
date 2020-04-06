@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::API
+    # before_action :authorize
     rescue_from ActiveRecord::RecordNotFound, :with => :record_not_found
     # rescue_from ActionController::RoutingError, :with => :record_not_found    
 
@@ -25,18 +26,21 @@ class ApplicationController < ActionController::API
 
 #   def decoded_token
 #     if auth_header
+#       token = (auth_header.split(" ")[1], secret)
 #       begin
-#         JWT.decode(auth_header.split(" ")[1], secret)
+#         JWT.decode(token)
 #       rescue JWT::DecodeError
-#         nil
+#         []
 #       end
 #     end
 #   end
 
 #   def current_user
-#     if decoded_token
+#     if !decoded_token.empty?
 #       user_id = decoded_token[0]['user_id']
-#       @user = User.find(user_id)
+#       @user = User.find(id: user_id)
+#     else
+#       nil
 #     end
 #   end
 
@@ -44,7 +48,7 @@ class ApplicationController < ActionController::API
 #     !!current_user
 #   end
 
-#   def authorized
+#   def authorize
 #     render json: { message: 'Please log in' }, status: :unauthorized unless logged_in?
 #   end
 end
