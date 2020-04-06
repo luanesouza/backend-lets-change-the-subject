@@ -5,7 +5,7 @@ class Api::V1::UsersController < ApplicationController
         begin
             @users = User.all
             render json: @users
-        rescue StandardError => e 
+        rescue StandardError => e
             render json: {"error": ("#{e.message}") }, status: 400
         end
     end
@@ -18,7 +18,7 @@ class Api::V1::UsersController < ApplicationController
         @user = User.new(user_params)
             if @user.valid? # && params[:user][:password] === params[:user][:password_confirmation]
                 @user.save
-                @token = encode_token({ user_id: @user.id })
+                # @token = encode_token({ user_id: @user.id })
                 render json: @user, status: :created
             else
                 @all_errors = ''
