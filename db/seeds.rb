@@ -11,9 +11,9 @@ Question.reset_pk_sequence
 User.reset_pk_sequence
 
 ############### USERS ###############
-annie = User.create!(username: "annie2020", email:"annie2020@gmail.com")
-victoria = User.create!(username: "victoria2020", email: "victoria2020@gmail.com")
-sylwia = User.create!(username: "sylwia2020", email:"sylwia2020@gmail.com")
+annie = User.create!(username: "annie2020", email:"annie2020@gmail.com", password: "Annie2020")
+victoria = User.create!(username: "victoria2020", email: "victoria2020@gmail.com", password: "Victoria2020")
+sylwia = User.create!(username: "sylwia2020", email:"sylwia2020@gmail.com", password: "Sylwia2020")
 
 ########## SOURCE VARIABLES ######################
 q36 = "36 Questions for Increasing Closeness"
