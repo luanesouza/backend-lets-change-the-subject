@@ -10,6 +10,8 @@ Let's change the subject is an app that facilitates conversations big and small 
     - [Node Installation on Windows](#node-installation-on-windows)
 - [Installation](#installation)
 - [Start and Watch](#start-and-watch)
+- [Domain Model](#domain-model)
+- [Endpoints and Sample Responses](#endpoints-and-sample-responses)
 - [Languages and tools](#languages-and-tools)
 - [Contributing](#contributing)
     - [Known Issues](#known-issues)
@@ -82,6 +84,13 @@ Go on [official Rails website](https://gorails.com/setup/windows/10) & follow th
 ```
     $ rails s
 ```
+***
+## Domain model
+tba 
+
+## Endpoints and sample responses
+tba
+
 ## Languages and Tools
 
 - [Ruby on Rails](https://rubyonrails.org/) 
