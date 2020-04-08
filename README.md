@@ -26,29 +26,29 @@ You will need to use a Terminal. On OS X, you can find the default terminal in
 1. Install [Homebrew](http://brew.sh/):
 
     ```
-    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    $ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
     ```
 
 2. Install [Ruby](https://www.ruby-lang.org/en/):
 ```
-    brew install rbenv ruby-build
+    $ brew install rbenv ruby-build
     # Add rbenv to bash so that it loads every time you open a terminal
-    echo 'if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi' >> ~/.bash_profile
-    source ~/.bash_profile
+    $ echo 'if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi' >> ~/.bash_profile
+    $ source ~/.bash_profile
 
     # Install Ruby
-    rbenv install 2.7.1
-    rbenv global 2.7.1
-    ruby -v
+    $ rbenv install 2.7.1
+    $ rbenv global 2.7.1
+    $ ruby -v
 ```
 3. Install [Rails](https://rubyonrails.org/)
 ```
-gem install rails -v 6.0.2.2
+    $ gem install rails -v 6.0.2.2
 ```
 
 4. Install [PostgreSQL](https://www.postgresql.org/)
 ```
-brew install postgresql
+    $ brew install postgresql
 ```
 
 #### Node installation on Linux
