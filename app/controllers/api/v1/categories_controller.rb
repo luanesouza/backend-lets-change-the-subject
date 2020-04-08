@@ -4,7 +4,6 @@ class Api::V1::CategoriesController < ApplicationController
     def index
         begin
             @categories = Category.all.map{|c| {
-                id: c.id,
                 name: c.name
             }}
             render json: @categories, status: 200
