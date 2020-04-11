@@ -21,7 +21,7 @@ class Api::V1::UsersController < ApplicationController
             if @user.valid? # && params[:user][:password] === params[:user][:password_confirmation]
                 payload = {user_id: @user.id}
                 @token = encode_token({ user_id: @user.id })
-                render json: {user: @user, token: @token}, status: :created
+                render json: {user: UserSerializer.new(@user), token: @token}, status: :created
             else
                 @all_errors = ''
                 @user.errors.full_messages.each do |message|
