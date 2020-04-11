@@ -16,8 +16,8 @@ class Api::V1::UsersController < ApplicationController
     end
 
     def create
+        byebug
         @user = User.create!(user_params)
-            # byebug
             if @user.valid? # && params[:user][:password] === params[:user][:password_confirmation]
                 payload = {user_id: @user.id}
                 @token = encode_token(payload)
@@ -46,7 +46,7 @@ class Api::V1::UsersController < ApplicationController
     private
 
     def user_params
-        params.permit(:username, :email, :password)
+        params.permit(:username, :email, :password_digest)
     end
 
     def find_user

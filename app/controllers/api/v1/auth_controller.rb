@@ -3,11 +3,10 @@ class Api::V1::AuthController < ApplicationController
 
     def login
         user = User.find_by(username: user_login_params[:username])
-        byebug
-        if user && user.authenticate(params[:password])
+        if user && user.password_digest == params[:password_digest]
             payload={user_id: user.id}
             token= encode_token(payload)
-            render json: {user: user, token: token}, status: :success
+            render json: {user: user, token: token}, status: 200
         else
             render json: {failure: "Login failed! User or password invalid!"}
         end
@@ -24,6 +23,6 @@ class Api::V1::AuthController < ApplicationController
     private
 
     def user_login_params
-      params.permit(:username, :password)
+      params.permit(:username, :password_digest)
     end
 end
