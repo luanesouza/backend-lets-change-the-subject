@@ -26,7 +26,7 @@ class Api::V1::UsersController < ApplicationController
                 # if params[:user][:password] != params[:user][:password_confirmation]
                 #     @all_errors += "Passwords don't match."
                 # end
-                render json: { @user.errors.full_messages }, status: :not_acceptable
+                render json: {error: @user.errors.full_messages }, status: :not_acceptable
             end
     end
 

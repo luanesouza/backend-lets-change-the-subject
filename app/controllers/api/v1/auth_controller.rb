@@ -3,8 +3,8 @@ class Api::V1::AuthController < ApplicationController
 
     def login
         user = User.find_by(username: user_login_params[:username])
-        # byebug
-        if user
+        byebug
+        if user && user.authenticate(params[:password])
             payload={user_id: user.id}
             token= encode_token(payload)
             render json: {user: user, token: token}, status: :success
