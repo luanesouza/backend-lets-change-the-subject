@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::API
-    before_action :authorize
+    before_action :authorized
     rescue_from ActiveRecord::RecordNotFound, :with => :record_not_found
     # rescue_from ActionController::RoutingError, :with => :record_not_found    
 
@@ -29,7 +29,7 @@ class ApplicationController < ActionController::API
   def current_user
     if decoded_token && !decoded_token.empty?
       user_id = decoded_token[0]['user_id']
-      @user = User.find(id: user_id)
+      @user = User.find_by(id: user_id)
     else
       nil
     end
@@ -39,7 +39,7 @@ class ApplicationController < ActionController::API
     !!current_user
   end
 
-  def authorize
+  def authorized
     render json: { message: 'Please log in' }, status: :unauthorized unless logged_in?
   end
 
