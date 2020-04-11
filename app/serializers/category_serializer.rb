@@ -1,5 +1,5 @@
 class CategorySerializer < ActiveModel::Serializer
-  attributes :id, :name, :questions
+  attributes :name, :questions
 
   def questions
     questions = object.question_categories.map(&:question).map{|q| 

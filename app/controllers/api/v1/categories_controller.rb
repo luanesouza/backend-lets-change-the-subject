@@ -1,4 +1,5 @@
 class Api::V1::CategoriesController < ApplicationController
+    skip_before_action :authorized, only: [:index]
     before_action :find_category, only: [:show]
 
     def index
