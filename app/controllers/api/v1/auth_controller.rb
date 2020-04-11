@@ -6,7 +6,7 @@ class Api::V1::AuthController < ApplicationController
         if user && user.password_digest == params[:password_digest]
             payload={user_id: user.id}
             token= encode_token(payload)
-            render json: {user: user, token: token}, status: 200
+            render json: {user: UserSerializer.new(user), jwt: token}, status: 200
         else
             render json: {failure: "Login failed! User or password invalid!"}
         end
