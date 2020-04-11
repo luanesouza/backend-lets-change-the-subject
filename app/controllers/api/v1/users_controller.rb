@@ -20,17 +20,13 @@ class Api::V1::UsersController < ApplicationController
             # byebug
             if @user.valid? # && params[:user][:password] === params[:user][:password_confirmation]
                 payload = {user_id: @user.id}
-                @token = encode_token({ user_id: @user.id })
-                render json: {user: UserSerializer.new(@user), token: @token}, status: :created
+                @token = encode_token(payload)
+                render json: {user: UserSerializer.new(@user), jwt: @token}, status: :created
             else
-                @all_errors = ''
-                @user.errors.full_messages.each do |message|
-                    @all_errors += "#{message} - "
-                end
                 # if params[:user][:password] != params[:user][:password_confirmation]
                 #     @all_errors += "Passwords don't match."
                 # end
-                render json: { error: @all_errors }, status: :not_acceptable
+                render json: { @user.errors.full_messages }, status: :not_acceptable
             end
     end
 
