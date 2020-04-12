@@ -1,5 +1,6 @@
 class Api::V1::QuestionCategoriesController < ApplicationController
-    skip_before_action :authorized, only: [:index]
+    #### THIS CODE IS COMMENTED OUT UNTIL WE HAVE LOGIN ####
+    # skip_before_action :authorized, only: [:index]
     before_action :find_question_category, only: [:show]
 
     def index

@@ -1,5 +1,6 @@
 class Api::V1::CategoriesController < ApplicationController
-    skip_before_action :authorized, only: [:index]
+    #### THIS CODE IS COMMENTED OUT UNTIL WE HAVE LOGIN ####
+    # skip_before_action :authorized, only: [:index]
     before_action :find_category, only: [:show]
 
     def index
@@ -14,6 +15,7 @@ class Api::V1::CategoriesController < ApplicationController
     end
 
     def show
+        byebug
         begin
             render json: @category, status: 200
         rescue StandardError => e  

@@ -1,5 +1,6 @@
 class Api::V1::UsersController < ApplicationController
-    skip_before_action :authorized, only: [:create]
+    #### THIS CODE IS COMMENTED OUT UNTIL WE HAVE LOGIN ####
+    # skip_before_action :authorized, only: [:create]
     before_action :find_user, only: [:update, :show, :destroy]
 
     def index
@@ -16,7 +17,7 @@ class Api::V1::UsersController < ApplicationController
     end
 
     def create
-        byebug
+        # byebug
         @user = User.create!(user_params)
             if @user.valid? # && params[:user][:password] === params[:user][:password_confirmation]
                 payload = {user_id: @user.id}
