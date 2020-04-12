@@ -17,7 +17,6 @@ class Api::V1::UsersController < ApplicationController
     end
 
     def create
-        # byebug
         @user = User.create!(user_params)
             if @user.valid? # && params[:user][:password] === params[:user][:password_confirmation]
                 payload = {user_id: @user.id}
