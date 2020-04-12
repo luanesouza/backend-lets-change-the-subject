@@ -10,7 +10,7 @@ class UserSerializer < ActiveModel::Serializer
   end
 
   def remainingPartnersQs
-    find_not_seen_in_cat("partners")
+    find_not_seen_in_cat("partner")
   end
 
   def seen_questions
@@ -18,7 +18,7 @@ class UserSerializer < ActiveModel::Serializer
   end
 
   def find_not_seen_in_cat(cat)
-    not_seen = Question.all.select{|q| q.categories.select{|c| c.name.include?(cat)}}.select{|q| !seen_questions.include?(q)}.map{|q| 
+    not_seen = Category.all.find{|c| c.name == cat}.questions.select{|q| !seen_questions.include?(q)}.map{|q| 
       {
         "id": q.id,
         "spiciness": q.spiciness,

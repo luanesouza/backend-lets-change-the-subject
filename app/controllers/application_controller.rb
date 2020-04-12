@@ -1,8 +1,10 @@
 class ApplicationController < ActionController::API
-    before_action :authorized
     rescue_from ActiveRecord::RecordNotFound, :with => :record_not_found
-    # rescue_from ActionController::RoutingError, :with => :record_not_found    
 
+  #### THIS CODE IS COMMENTED OUT UNTIL WE HAVE LOGIN ####
+      # before_action :authorized
+
+  #### CHANGE SECRET AND ADD IT TO ENV #####
   def secret
     "sylwia"
   end
