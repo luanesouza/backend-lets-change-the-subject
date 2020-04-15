@@ -15,7 +15,6 @@ class Api::V1::CategoriesController < ApplicationController
     end
 
     def show
-        byebug
         begin
             render json: @category, status: 200
         rescue StandardError => e  
