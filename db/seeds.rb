@@ -54,7 +54,7 @@ sq3 = SeenQuestion.create!(user_id: sylwia.id, question_id: q2.id, skipped: fals
 
 ############ OTHER QUESTIONS #################
 partner_36_qs = [
-"If you were able to live to the age of 90 and retain either the mind or body of a 30-year-old for the last 60 years of your life, which would you want?", 
+"If you were able to live to the age of 90 and retain either the mind or body of a 30-year-old for the last 60 years of your life, which would you want?",
 "If you were able to live to the age of 90 and retain either the mind or body of a 30-year-old for the last 60 years of your life, which would you want?",
 "Do you have a secret hunch about how you will die?",
 "Name three things you and your partner appear to have in common.",
@@ -68,7 +68,7 @@ partner_36_qs = [
 "What do you value most in a friendship?",
 "What is your most treasured memory?",
 "What is your most terrible memory?",
-"If you knew that in one year you would die suddenly, would you change anything about the way you are now living?", 
+"If you knew that in one year you would die suddenly, would you change anything about the way you are now living?",
 "What does friendship mean to you?",
 "What roles do love and affection play in your life?",
 "Alternate sharing something you consider a positive characteristic of your partner. Share a total of five items.",
@@ -84,10 +84,10 @@ partner_36_qs = [
 ]
 
 
-partner_36_qs.each do |q| 
+partner_36_qs.each do |q|
     question = Question.create!(content: q, spiciness: 1, additional_link: q36_link, source: q36)
     QuestionCategory.create!(question_id: question.id, category_id: c3.id)
-end 
+end
 
 partner_other = [
     "How do you know when you love someone? How did you know you loved me?",
@@ -187,10 +187,10 @@ friends_qs_sylwia = [
 "How would you explain to an alien who doesn't know our culture at all what TikTok is?"
 ]
 
-friends_qs_sylwia.each do |q| 
+friends_qs_sylwia.each do |q|
     question = Question.create!(content: q, spiciness: 1, additional_link: "", source: "")
     QuestionCategory.create!(question_id: question.id, category_id: c1.id)
-end 
+end
 
 friends_qs_conv = [
 "What would be the worst name to give a child?",
@@ -228,10 +228,10 @@ friends_qs_conv = [
 "Do people have a right to be happy or should they have to earn it?"
 ]
 
-friends_qs_conv.each do |q| 
+friends_qs_conv.each do |q|
     question = Question.create!(content: q, spiciness: 1, additional_link: q_conversation_starters_link, source: q_conversation_starters)
     QuestionCategory.create!(question_id: question.id, category_id: c1.id)
-end 
+end
 
 colleague_qs = [
     "Do you wish you had a clone?",
@@ -346,7 +346,7 @@ colleague_qs = [
     "What’s your favorite time of day: morning, afternoon, evening or late night?",
     "What is part of your daily routine that you look forward to every day?",
 ]
-colleague_qs.each do |q| 
+colleague_qs.each do |q|
     question = Question.create!(content: q, spiciness: 1, additional_link: "", source: "")
     QuestionCategory.create!(question_id: question.id, category_id: c2.id)
-end 
+end

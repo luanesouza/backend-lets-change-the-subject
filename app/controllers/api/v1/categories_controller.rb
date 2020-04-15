@@ -9,7 +9,7 @@ class Api::V1::CategoriesController < ApplicationController
                 name: c.name
             }}
             render json: @categories, status: 200
-        rescue StandardError => e  
+        rescue StandardError => e
             render json: {"error": ("#{e.message}") }, status: 400
         end
     end
@@ -17,7 +17,7 @@ class Api::V1::CategoriesController < ApplicationController
     def show
         begin
             render json: @category, status: 200
-        rescue StandardError => e  
+        rescue StandardError => e
             render json: {"error": ("#{e.message}") }, status: 400
         end
     end
