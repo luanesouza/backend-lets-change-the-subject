@@ -9,8 +9,8 @@ class CategorySerializer < ActiveModel::Serializer
         "additionalLink": q.additional_link,
         "content": q.content
       }}.shuffle
-    if questions.length > 100
-      return questions.sample(100)
+    if questions.length > 300
+      return questions.sample(300)
     else 
       return questions
     end
