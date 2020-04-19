@@ -233,16 +233,7 @@ friends_qs_conv.each do |q|
     QuestionCategory.create!(question_id: question.id, category_id: c1.id)
 end
 
-colleague_qs = [
-    "Do you wish you had a clone?",
-    "What is one important skill that you think everyone should have?",
-    "If you had to challenge death for your soul on one thing, what would it be?",
-    "What is your least favorite movie from the last year?",
-    "Given your current skillset, from how high do you think you can fall without hurting yourself?",
-    "Which two fictional characters do you think kissed each other although it was not indicated on screen?",
-    "Which two fictional characters would you take with you to one-year space trip?",
-    "Least favorite color and why?",
-    "Which non-human mammal do you think owes everyone most apology?",
+colleague_qs_website = [
     "What's one thing still left on your bucket list?",
     "There are now 25 hours in a day! How do you spend your extra hour?",
     "What was the most fun thing you did last weekend?",
@@ -346,7 +337,24 @@ colleague_qs = [
     "What’s your favorite time of day: morning, afternoon, evening or late night?",
     "What is part of your daily routine that you look forward to every day?",
 ]
-colleague_qs.each do |q|
+colleague_qs_website.each do |q|
+    question = Question.create!(content: q, spiciness: 1, additional_link: "https://www.signupgenius.com/business/icebreakerquestionswork.cfm", source: "100 icebreaker questions for work")
+    QuestionCategory.create!(question_id: question.id, category_id: c2.id)
+end
+
+other_colleague_qs = [
+    "Do you wish you had a clone?",
+    "What is one important skill that you think everyone should have?",
+    "If you had to challenge death for your soul on one thing, what would it be?",
+    "What is your least favorite movie from the last year?",
+    "Given your current skillset, from how high do you think you can fall without hurting yourself?",
+    "Which two fictional characters do you think kissed each other although it was not indicated on screen?",
+    "Which two fictional characters would you take with you to one-year space trip?",
+    "Least favorite color and why?",
+    "Which non-human mammal do you think owes everyone most apology?",
+]
+
+other_colleague_qs.each do |q|
     question = Question.create!(content: q, spiciness: 1, additional_link: "", source: "")
     QuestionCategory.create!(question_id: question.id, category_id: c2.id)
 end
