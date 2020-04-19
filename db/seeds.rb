@@ -115,7 +115,7 @@ partner_other = [
 ]
 
 partner_other.each do |q| 
-    question = Question.create!(content: q, spiciness: 1, additional_link: "", source: "")
+    question = Question.create!(content: q, spiciness: 1, additional_link: "https://thoughtcatalog.com/nicole-tarkoff/2017/12/40-questions-to-ask-your-partner-about-love-that-are-really-hard-to-answer-but-will-make-your-connection-even-stronger/", source: "40 Questions To Ask Your Partner About Love That Are Really Hard To Answer, But Will Make Your Connection Even Stronger")
     QuestionCategory.create!(question_id: question.id, category_id: c3.id)
 end 
 
