@@ -9,3 +9,4 @@ class User < ApplicationRecord
     validates :password_digest, presence: true, length: { in: 8..32, message: "Your password should be between 8 and 32 characters long." }
 
 end
+ 

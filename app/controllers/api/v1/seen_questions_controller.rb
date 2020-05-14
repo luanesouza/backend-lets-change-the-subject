@@ -11,7 +11,7 @@ class Api::V1::SeenQuestionsController < ApplicationController
     end
 
     def create
-        @seen_question = Event.create(seen_question_params)
+        @seen_question = SeenQuestion.create(seen_question_params)
         if @seen_question.valid?
             render json: @seen_question, status: 200
         else
